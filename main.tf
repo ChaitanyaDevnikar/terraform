@@ -95,6 +95,15 @@ resource "aws_instance" "nginx1" {
   subnet_id              = aws_subnet.subnet1.id
   vpc_security_group_ids = [aws_security_group.nginx-sg.id]
 key_name = "mohnish"
+    user_data = <<EOF
+        #! /bin/bash
+        sudo yum update -y
+        sudo yum install -y docker
+        sudo service docker start
+        sudo usermod -a -G docker ec2-user
+        sudo docker pull mohnishbhonde/sns01
+        sudo docker run -p 8081:8081 --name terra -d mohnishbhonde/sns01
+    EOF
 
 
 
