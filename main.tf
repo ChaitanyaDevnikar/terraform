@@ -101,8 +101,8 @@ key_name = "mohnish"
         sudo yum install -y docker
         sudo service docker start
         sudo usermod -a -G docker ec2-user
-        sudo docker pull mohnishbhonde/sns01
-        sudo docker run -p 8081:8081 --name terra -d mohnishbhonde/sns01
+        sudo docker pull chaitany3/new1
+        sudo docker run -p 8081:8081 --name terra -d chaitany3/new1
     EOF
 
 
